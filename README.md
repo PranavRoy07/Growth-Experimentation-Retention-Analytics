@@ -1,9 +1,9 @@
 # Growth Experimentation & Retention Analytics
 
-[![Live App](https://img.shields.io/badge/Live%20App-Open%20Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](YOUR-STREAMLIT-LINK)
+[![Live App](https://img.shields.io/badge/Live%20App-Open%20Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://growth-experimentation-retention-analytics-09.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Interactive%20Analytics-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Status](https://img.shields.io/badge/Status-Deployed-2EA44F?style=for-the-badge)](YOUR-STREAMLIT-LINK)
+[![Status](https://img.shields.io/badge/Status-Deployed-2EA44F?style=for-the-badge)](https://growth-experimentation-retention-analytics-09.streamlit.app/)
 
 > **Live dashboard:** https://growth-experimentation-retention-analytics-09.streamlit.app/
 
@@ -43,6 +43,17 @@ Do not fully roll out the regular-ad experience yet. The ad treatment increased 
 ## Business question
 
 **Does showing a regular advertisement instead of a public-service announcement increase conversion enough to justify a production rollout?**
+
+## Data sources
+
+The A/B test results (conversion rates, chi-square test, confidence interval) are computed directly from the
+[Marketing A/B Testing dataset](https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing) on Kaggle — 588,101
+real user records, `ad` vs `psa` groups.
+
+The funnel and cohort-retention pages use [FILL IN: e.g. "a synthetic session dataset generated to demonstrate
+funnel and retention analysis techniques, since the source A/B dataset has no session or signup history"] and are
+included to show the analysis method, not as a claim about this specific ad campaign's downstream funnel behavior.
+
 
 This project combines experimental analysis, funnel diagnostics, and cohort-retention exploration in a deployed Streamlit application.
 
