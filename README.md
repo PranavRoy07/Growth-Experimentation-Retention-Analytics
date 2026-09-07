@@ -1,54 +1,98 @@
 # Growth Experimentation & Retention Analytics
 
-**Live app:** [Open the interactive dashboard](https://YOUR-APP.streamlit.app)
+[![Live App](https://img.shields.io/badge/Live%20App-Open%20Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](YOUR-STREAMLIT-LINK)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Interactive%20Analytics-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Status](https://img.shields.io/badge/Status-Deployed-2EA44F?style=for-the-badge)](YOUR-STREAMLIT-LINK)
 
-## Recommendation
+> **Live dashboard:** [Open the deployed Streamlit application](YOUR-STREAMLIT-LINK)
 
-Do not fully roll out the regular-ad experience yet. It increased conversion from 1.79% to 2.55%, a statistically significant lift of 0.77 percentage points. However, this result did not meet the pre-defined 2-percentage-point minimum detectable effect, so the commercial impact is not yet large enough to justify a full rollout. Run a follow-up experiment that measures revenue and acquisition cost, while prioritizing checkout improvements because checkout is the largest observed funnel drop-off.
+## Executive recommendation
 
-![Overview dashboard](assets/screenshots/overview.png)
+Do not fully roll out the regular-ad experience yet. The ad treatment increased conversion from **1.79%** to **2.55%**, producing an absolute lift of **0.77 percentage points** and a relative lift of approximately **43%**. The result is statistically significant, but it does not meet the pre-defined **2-percentage-point minimum detectable effect (MDE)** required for rollout. The recommended next step is a follow-up experiment that includes revenue, customer-acquisition cost, and downstream retention guardrails.
 
-![A/B test results](assets/screenshots/test-results.png)
+---
 
-![Cohort retention heatmap](assets/screenshots/cohort-retention.png)
+## Dashboard preview
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assets/screenshots/01-overview.png" alt="Overview dashboard" />
+      <p align="center"><b>Overview</b><br/>Executive metrics and business recommendation</p>
+    </td>
+    <td width="50%">
+      <img src="assets/screenshots/02-test-results.png" alt="A/B test results" />
+      <p align="center"><b>A/B Test Results</b><br/>Lift, p-value, and confidence interval</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/screenshots/03-funnel.png" alt="Funnel analysis" />
+      <p align="center"><b>Funnel Analysis</b><br/>Stage-level drop-off with interactive filters</p>
+    </td>
+    <td width="50%">
+      <img src="assets/screenshots/04-cohort-retention.png" alt="Cohort retention" />
+      <p align="center"><b>Cohort Retention</b><br/>Signup cohorts segmented by acquisition source</p>
+    </td>
+  </tr>
+</table>
+
+---
 
 ## Business question
 
-Does showing a regular advertisement instead of a public-service announcement increase conversion enough to justify rollout?
+**Does showing a regular advertisement instead of a public-service announcement increase conversion enough to justify a production rollout?**
 
-## Key results
+This project combines experimental analysis, funnel diagnostics, and cohort-retention exploration in a deployed Streamlit application.
 
-- PSA conversion rate: **1.79%**
-- Ad conversion rate: **2.55%**
-- Absolute conversion lift: **+0.77 percentage points**
-- 95% confidence interval: **+0.60 to +0.94 percentage points**
-- P-value: **< 0.001**
-- Decision threshold: **+2 percentage points**
-- Decision: statistically significant, but not practically significant under the defined rollout rule.
+## Key A/B test results
 
-## Dashboard features
+| Metric | Result |
+|---|---:|
+| PSA control conversion rate | 1.79% |
+| Ad treatment conversion rate | 2.55% |
+| Absolute conversion lift | +0.77 percentage points |
+| Relative conversion lift | +43% |
+| 95% confidence interval | +0.60 to +0.94 percentage points |
+| P-value | < 0.001 |
+| Practical threshold / MDE | +2.00 percentage points |
+| Decision | Do not fully roll out yet |
 
-- A/B test results with conversion rates, confidence interval, and p-value
-- Date- and acquisition-source-filtered funnel analysis
-- Funnel drop-off identification
-- Signup-cohort retention heatmap
-- Acquisition-source retention exploration
+### Interpretation
 
-## Method
+The chi-square test shows strong statistical evidence that conversion differs between the ad and PSA groups. However, statistical significance is not sufficient for a business decision. The entire confidence interval remains below the defined two-percentage-point MDE, so the observed uplift is not practically significant under the project’s rollout rule.
 
-The A/B experiment compares binary conversion outcomes between the `ad` treatment group and `psa` control group using a chi-square test of independence. The analysis reports conversion rates, the raw percentage-point difference, a 95% confidence interval, and a practical-significance threshold.
+## Funnel and retention findings
 
-The funnel analysis counts unique sessions reaching page view, add to cart, checkout, and purchase stages. Cohort retention measures whether a customer generated at least one event in each week after signup.
+| Funnel metric | Result |
+|---|---:|
+| Page-view sessions | 120,000 |
+| Purchase sessions | 33,580 |
+| End-to-end purchase conversion | 27.98% |
+| Largest funnel friction point | Checkout |
+| Average week-4 retention | 2.59% |
 
-## Data scope and limitations
+The funnel and cohort pages include date-range and acquisition-source filters so users can investigate whether performance varies by channel.
 
-This project uses two separate public datasets:
+## Methodology
 
-1. [Marketing A/B Testing](https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing) for the ad-versus-PSA conversion experiment.
-2. A synthetic e-commerce clickstream dataset for the funnel and cohort-retention views.
+### Experiment analysis
 
-The A/B dataset contains no timestamps, signup history, traffic-source information, revenue, or retention events. Therefore, its experiment findings are not merged with the clickstream retention and funnel findings. The clickstream data is synthetic and is used only to demonstrate the analytical workflow and interactive dashboard design.
+The primary outcome is binary conversion. The project uses a chi-square test of independence to compare conversion outcomes between the `ad` treatment group and `psa` control group.
 
-## Tech stack
+The experiment analysis reports:
 
-Python, pandas, SciPy, Plotly, and Streamlit.
+- Conversion rate by group
+- P-value from the chi-square test
+- Absolute conversion-rate lift
+- 95% confidence interval
+- Minimum detectable effect
+- Statistical and practical-significance decision
+
+### Funnel analysis
+
+The funnel measures unique sessions across four stages:
+
+```text
+Page View → Add to Cart → Checkout → Purchase
