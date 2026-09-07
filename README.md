@@ -5,7 +5,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-Interactive%20Analytics-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Status](https://img.shields.io/badge/Status-Deployed-2EA44F?style=for-the-badge)](YOUR-STREAMLIT-LINK)
 
-> **Live dashboard:** [Open the deployed Streamlit application](YOUR-STREAMLIT-LINK)
+> **Live dashboard:** https://growth-experimentation-retention-analytics-09.streamlit.app/
 
 ## Executive recommendation
 
