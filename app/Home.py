@@ -1,5 +1,5 @@
 import streamlit as st
-from app.app_utils import load_ab_data, experiment_results
+from app_utils import load_ab_data, experiment_results
 
 st.set_page_config(
     page_title="Growth Experimentation Analytics",

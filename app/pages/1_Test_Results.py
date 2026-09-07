@@ -1,6 +1,12 @@
 import streamlit as st
 import plotly.express as px
-from app.app_utils import load_ab_data, experiment_results
+import sys
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(APP_DIR))
+
+from app_utils import load_ab_data, experiment_results
 
 st.set_page_config(page_title="Test Results", layout="wide")
 st.title("A/B Test Results")
