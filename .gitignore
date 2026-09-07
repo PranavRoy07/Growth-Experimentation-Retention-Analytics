@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+outputs/
+.streamlit/secrets.toml
+.git_backup_*/
+
+data/raw/marketing_AB.csv
+data/raw/ecommerce_clickstream/orders.csv
+data/raw/ecommerce_clickstream/products.csv
+data/raw/ecommerce_clickstream/reviews.csv
